@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Projects by Manohar Krishna Boppe — AI-powered platforms, distributed systems, and cloud-native applications.">
+    <meta name="description"
+        content="Projects by Manohar Krishna Boppe — AI-powered platforms, distributed systems, and cloud-native applications.">
     <meta name="author" content="Manohar Krishna Boppe">
     <title>Projects | Manohar Krishna Boppe</title>
     <script>
@@ -11,7 +13,7 @@
             try {
                 var pref = localStorage.getItem('theme-pref') || 'system';
                 var dark = pref === 'dark' ||
-                           (pref === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+                    (pref === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
                 if (dark) document.documentElement.setAttribute('data-theme', 'dark');
             } catch (e) { /* localStorage blocked — fall through to system */ }
         })();
@@ -19,6 +21,7 @@
     <link rel="stylesheet" href="./styles.css?v=11">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+
 <body>
     <div class="cursor-dot"></div>
     <div class="cursor-ring"></div>
@@ -31,8 +34,8 @@
                 <a href="projects.html" class="nav-link active">Projects</a>
                 <a href="blogs.html" class="nav-link">Blog</a>
 
-                <button class="theme-toggle" id="theme-toggle" type="button"
-                        aria-label="Toggle color theme" title="Toggle theme (long-press to reset to system)">
+                <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme"
+                    title="Toggle theme (long-press to reset to system)">
                     <i class="fas fa-moon theme-icon-dark" aria-hidden="true"></i>
                     <i class="fas fa-sun theme-icon-light" aria-hidden="true"></i>
                 </button>
@@ -50,15 +53,19 @@
                 <!-- Project 8/2024 - Design Patterns -->
                 <article class="timeline-item" data-month="August" data-year="2024">
                     <div class="timeline-dot"></div>
-                    <span class="timeline-date">August 2024</span>
+                    <span class="timeline-date">June 2026</span>
                     <div class="timeline-body">
                         <h3>
-                            <a href="https://github.com/manohar102/Design-Patterns" target="_blank" rel="noopener noreferrer" class="project-title-link">
+                            <a href="https://github.com/manohar102/Design-Patterns" target="_blank"
+                                rel="noopener noreferrer" class="project-title-link">
                                 Java Design Patterns Catalog — SOLID Billing Foundations
                                 <i class="fab fa-github"></i>
                             </a>
                         </h3>
-                        <p class="project-short-desc">A production-grade reference implementation of all 23 classic GoF software design patterns in Java. Built using a multi-project Gradle structure, enforcing strict SOLID design principles and clean code architectures for scalable enterprise systems (such as high-throughput billing systems).</p>
+                        <p class="project-short-desc">A production-grade reference implementation of all 23 classic GoF
+                            software design patterns in Java. Built using a multi-project Gradle structure, enforcing
+                            strict SOLID design principles and clean code architectures for scalable enterprise systems
+                            (such as high-throughput billing systems).</p>
                         <div class="project-tags">
                             <span class="project-tag"><i class="fas fa-server"></i> Backend Engineering</span>
                             <span class="project-tag"><i class="fab fa-java"></i> Java</span>
@@ -85,5 +92,7 @@
 
     <script src="./scripts.js?v=4"></script>
 </body>
+
 </html>
+
 </html>
