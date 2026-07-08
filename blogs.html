@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manohar Krishna Boppe's blog — articles on AI, distributed systems, cloud engineering, and backend development.">
+    <meta name="author" content="Manohar Krishna Boppe">
+    <title>Blog | Manohar Krishna Boppe</title>
+    <script>
+        (function () {
+            try {
+                var pref = localStorage.getItem('theme-pref') || 'system';
+                var dark = pref === 'dark' ||
+                           (pref === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+                if (dark) document.documentElement.setAttribute('data-theme', 'dark');
+            } catch (e) { /* localStorage blocked — fall through to system */ }
+        })();
+    </script>
+    <link rel="stylesheet" href="./styles.css?v=11">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">MB</div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="blogs.html" class="nav-link active">Blog</a>
+
+                <button class="theme-toggle" id="theme-toggle" type="button"
+                        aria-label="Toggle color theme" title="Toggle theme (long-press to reset to system)">
+                    <i class="fas fa-moon theme-icon-dark" aria-hidden="true"></i>
+                    <i class="fas fa-sun theme-icon-light" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Blog Posts -->
+    <section class="blogs-section" id="blogs">
+        <div class="container">
+
+            <!-- Category Filter -->
+            <div class="blog-filters">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="ai">AI &amp; GenAI</button>
+                <button class="filter-btn" data-filter="systems">Distributed Systems</button>
+                <button class="filter-btn" data-filter="cloud">Cloud &amp; DevOps</button>
+                <button class="filter-btn" data-filter="backend">Backend Engineering</button>
+            </div>
+
+            <!-- Blog List -->
+            <ol class="blog-list">
+
+                <!-- Article 1: July 2024 - GenAI Systems (Featured) -->
+                <li class="blog-entry featured" data-category="ai">
+                    <div class="blog-entry-date">
+                        <time datetime="2024-07-01">July 2024</time>
+                    </div>
+                    <div class="blog-entry-content">
+                        <h2 class="blog-entry-title">
+                            <a href="#" class="blog-title-link">
+                                Building Production-Grade GenAI Systems: Lessons from the Trenches
+                            </a>
+                        </h2>
+                        <p class="blog-entry-excerpt">
+                            What nobody tells you about deploying large language models in production — latency, cost, hallucination guardrails, and multi-provider orchestration strategies.
+                        </p>
+                        <div class="blog-entry-meta">
+                            <span class="blog-category-tag"><i class="fas fa-brain"></i> AI &amp; GenAI</span>
+                            <span class="blog-featured-badge"><i class="fas fa-star"></i> Featured</span>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Article 2: June 2024 - Kafka Scaling (Systems) -->
+                <li class="blog-entry" data-category="systems">
+                    <div class="blog-entry-date">
+                        <time datetime="2024-06-01">June 2024</time>
+                    </div>
+                    <div class="blog-entry-content">
+                        <h2 class="blog-entry-title">
+                            <a href="#" class="blog-title-link">
+                                Designing Event-Driven Pipelines with Kafka at Scale
+                            </a>
+                        </h2>
+                        <p class="blog-entry-excerpt">
+                            A practical guide to partition strategies, consumer group design, and achieving exactly-once semantics in high-throughput deployments.
+                        </p>
+                        <div class="blog-entry-meta">
+                            <span class="blog-category-tag"><i class="fas fa-network-wired"></i> Distributed Systems</span>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Article 3: May 2024 - GKE vs EKS (Cloud) -->
+                <li class="blog-entry" data-category="cloud">
+                    <div class="blog-entry-date">
+                        <time datetime="2024-05-01">May 2024</time>
+                    </div>
+                    <div class="blog-entry-content">
+                        <h2 class="blog-entry-title">
+                            <a href="#" class="blog-title-link">
+                                GKE vs EKS: A Battle-Tested Comparison for Platform Engineers
+                            </a>
+                        </h2>
+                        <p class="blog-entry-excerpt">
+                            After running workloads on both GKE and EKS in production — node autoscaling, networking, cost trade-offs, and gotchas under load.
+                        </p>
+                        <div class="blog-entry-meta">
+                            <span class="blog-category-tag"><i class="fas fa-cloud"></i> Cloud &amp; DevOps</span>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Article 4: April 2024 - Spring to Go (Backend) -->
+                <li class="blog-entry" data-category="backend">
+                    <div class="blog-entry-date">
+                        <time datetime="2024-04-01">April 2024</time>
+                    </div>
+                    <div class="blog-entry-content">
+                        <h2 class="blog-entry-title">
+                            <a href="#" class="blog-title-link">
+                                Spring Boot to Go: Why We Migrated Our Critical Service
+                            </a>
+                        </h2>
+                        <p class="blog-entry-excerpt">
+                            A real migration story — performance wins, unexpected pain points, and lessons learned moving a high-traffic service from Spring Boot to Go.
+                        </p>
+                        <div class="blog-entry-meta">
+                            <span class="blog-category-tag"><i class="fas fa-server"></i> Backend Engineering</span>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Article 5: March 2024 - Google Live API (AI) -->
+                <li class="blog-entry" data-category="ai">
+                    <div class="blog-entry-date">
+                        <time datetime="2024-03-01">March 2024</time>
+                    </div>
+                    <div class="blog-entry-content">
+                        <h2 class="blog-entry-title">
+                            <a href="#" class="blog-title-link">
+                                Google Live API: Building Real-Time Multimodal Applications
+                            </a>
+                        </h2>
+                        <p class="blog-entry-excerpt">
+                            Hands-on experience integrating Google's real-time voice and vision interactions — architecture patterns, latency challenges, capabilities today.
+                        </p>
+                        <div class="blog-entry-meta">
+                            <span class="blog-category-tag"><i class="fas fa-brain"></i> AI &amp; GenAI</span>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Article 6: January 2024 - ClickHouse Analytics (Systems) -->
+                <li class="blog-entry" data-category="systems">
+                    <div class="blog-entry-date">
+                        <time datetime="2024-01-01">January 2024</time>
+                    </div>
+                    <div class="blog-entry-content">
+                        <h2 class="blog-entry-title">
+                            <a href="#" class="blog-title-link">
+                                ClickHouse for Analytics: When and How to Replace Your Data Warehouse
+                            </a>
+                        </h2>
+                        <p class="blog-entry-excerpt">
+                            Our journey from Redshift — schema design, query optimization tips, columnar compression strategies, and trade-offs worth considering.
+                        </p>
+                        <div class="blog-entry-meta">
+                            <span class="blog-category-tag"><i class="fas fa-database"></i> Systems &amp; Data</span>
+                        </div>
+                    </div>
+                </li>
+
+            </ol>
+        </div>
+    </section>
+
+
+
+    <div class="social-panel">
+        <a href="mailto:krishmanohar102@gmail.com" class="social-link">
+            <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/manoharkrishnaboppe/" class="social-link" target="_blank">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/manohar102" class="social-link" target="_blank">
+            <i class="fab fa-github"></i>
+        </a>
+    </div>
+
+    <script src="./scripts.js?v=4"></script>
+    <script>
+        // Blog filter functionality
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const blogEntries = document.querySelectorAll('.blog-entry');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.dataset.filter;
+                blogEntries.forEach(entry => {
+                    const show = filter === 'all' || entry.dataset.category === filter;
+                    entry.style.opacity = show ? '1' : '0.25';
+                    entry.style.pointerEvents = show ? '' : 'none';
+                });
+            });
+        });
+
+        // Subscribe form handler
+        function handleSubscribe(e) {
+            e.preventDefault();
+            const btn = document.getElementById('subscribe-btn');
+            const success = document.getElementById('subscribe-success');
+            const emailInput = document.getElementById('subscribe-email');
+
+            btn.disabled = true;
+            const btnText = btn.querySelector('.btn-text');
+            if (btnText) btnText.textContent = 'Subscribing...';
+
+            setTimeout(() => {
+                success.classList.add('visible');
+                btn.style.display = 'none';
+                emailInput.removeAttribute('required');
+            }, 1200);
+        }
+    </script>
+</body>
+</html>

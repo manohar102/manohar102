@@ -1,0 +1,191 @@
+/* ============================================
+   Resume Page — Standalone Stylesheet
+   ============================================ */
+
+@page {
+    size: A4;
+    margin: 5mm;
+}
+
+/* Screen styles */
+body {
+    font-family: 'Roboto', Arial, sans-serif;
+    margin: 0;
+    padding: 15px;
+    background: #f8f9fa;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #333;
+}
+
+@media print {
+    body {
+        background: white !important;
+        padding: 0;
+        margin: 0;
+    }
+
+    .resume-container {
+        border-radius: 0% !important;
+        box-shadow: none !important;
+    }
+
+    .header {
+        background: white !important;
+        color: black !important;
+    }
+
+    .header .meta {
+        color: black !important;
+    }
+
+    .contact a {
+        color: black !important;
+        text-decoration: #357abd;
+    }
+
+    .education {
+        margin-top: 1000px;
+    }
+}
+
+.resume-container {
+    display: flex;
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.header {
+    background: linear-gradient(135deg, #14142a 0%, #357abd 100%);
+    color: white;
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 1000px;
+    margin: 0 auto 15px auto;
+    border-radius: 6px;
+}
+
+.header h1 {
+    font-size: 22px;
+    margin-bottom: 4px;
+    font-weight: 600;
+}
+
+.header .meta {
+    font-size: 11px;
+    color: rgba(255, 255, 255, 0.9);
+    font-weight: 400;
+}
+
+.contact {
+    text-align: right;
+    font-size: 11px;
+    line-height: 1.4;
+    text-decoration: none;
+}
+
+.contact a {
+    color: white;
+    text-decoration: none;
+}
+
+.contact a:hover {
+    text-decoration: underline;
+}
+
+.resume-content {
+    display: flex;
+    padding: 25px;
+}
+
+.sidebar {
+    flex: 0 0 28%;
+    border-right: 1px solid #e0e0e0;
+    padding-right: 20px;
+}
+
+.main-content {
+    flex: 1;
+    padding-left: 25px;
+}
+
+.section {
+    margin-bottom: 18px;
+}
+
+.section h2 {
+    font-size: 14px;
+    color: #2c3e50;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 4px;
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.sidebar .section h2 {
+    font-size: 13px;
+    border-bottom: 1px solid #e0e0e0;
+    color: #34495e;
+}
+
+.experience-item {
+    margin-bottom: 14px;
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.role {
+    font-size: 13px;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.date {
+    font-size: 11px;
+    color: #7f8c8d;
+    font-weight: 500;
+}
+
+ul {
+    margin: 6px 0 0 16px;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 3px;
+    line-height: 1.4;
+    font-size: 12px;
+}
+
+.meta {
+    color: #7f8c8d;
+    font-size: 11px;
+    margin-bottom: 2px;
+}
+
+.sidebar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.sidebar li {
+    margin-bottom: 3px;
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+.sidebar strong {
+    color: #2c3e50;
+    font-weight: 600;
+}

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Projects by Manohar Krishna Boppe — AI-powered platforms, distributed systems, and cloud-native applications.">
+    <meta name="author" content="Manohar Krishna Boppe">
+    <title>Projects | Manohar Krishna Boppe</title>
+    <script>
+        (function () {
+            try {
+                var pref = localStorage.getItem('theme-pref') || 'system';
+                var dark = pref === 'dark' ||
+                           (pref === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+                if (dark) document.documentElement.setAttribute('data-theme', 'dark');
+            } catch (e) { /* localStorage blocked — fall through to system */ }
+        })();
+    </script>
+    <link rel="stylesheet" href="./styles.css?v=11">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">MB</div>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="projects.html" class="nav-link active">Projects</a>
+                <a href="blogs.html" class="nav-link">Blog</a>
+
+                <button class="theme-toggle" id="theme-toggle" type="button"
+                        aria-label="Toggle color theme" title="Toggle theme (long-press to reset to system)">
+                    <i class="fas fa-moon theme-icon-dark" aria-hidden="true"></i>
+                    <i class="fas fa-sun theme-icon-light" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Projects Timeline -->
+    <section class="projects-section" id="projects">
+        <div class="container">
+            <h1 class="timeline-title">Project History</h1>
+
+            <div class="timeline-container">
+
+                <!-- Project 7/2024 - Testsigma -->
+                <article class="timeline-item" data-month="July" data-year="2024">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-date">July 2024</span>
+                    <div class="timeline-body">
+                        <h3>
+                            <a href="https://github.com/testsigmahq/testsigma" target="_blank" rel="noopener noreferrer" class="project-title-link">
+                                Testsigma — AI Test Automation Platform
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </h3>
+                        <p class="project-short-desc">Contributed to an AI-powered test automation platform enabling teams to create, execute, and maintain automated tests at scale with GenAI integration for intelligent test generation.</p>
+                    </div>
+                </article>
+
+                <!-- Project 6/2024 - Multi-Provider GenAI -->
+                <article class="timeline-item" data-month="June" data-year="2024">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-date">June 2024</span>
+                    <div class="timeline-body">
+                        <h3>
+                            <a href="https://github.com/manohar102" target="_blank" rel="noopener noreferrer" class="project-title-link">
+                                Multi-Provider GenAI Orchestration Engine
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </h3>
+                        <p class="project-short-desc">Architected a production-grade multi-provider AI orchestration layer supporting OpenAI, Gemini, and Claude with intelligent fallback, cost optimization, and latency-aware routing via Portkey.</p>
+                    </div>
+                </article>
+
+                <!-- Project 5/2024 - Cloud-Native Infrastructure -->
+                <article class="timeline-item" data-month="May" data-year="2024">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-date">May 2024</span>
+                    <div class="timeline-body">
+                        <h3>
+                            <a href="https://github.com/manohar102" target="_blank" rel="noopener noreferrer" class="project-title-link">
+                                Cloud-Native Infrastructure (AWS + GCP)
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </h3>
+                        <p class="project-short-desc">Designed and deployed multi-cloud infrastructure spanning AWS and GCP with Terraform IAC, zero-downtime deployments via CI/CD pipelines.</p>
+                    </div>
+                </article>
+
+                <!-- Project 4/2024 - Event-Driven Data Pipeline -->
+                <article class="timeline-item" data-month="April" data-year="2024">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-date">April 2024</span>
+                    <div class="timeline-body">
+                        <h3>
+                            <a href="https://github.com/manohar102" target="_blank" rel="noopener noreferrer" class="project-title-link">
+                                Event-Driven Data Pipeline
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </h3>
+                        <p class="project-short-desc">Built high-throughput event-driven pipelines using Kafka and RabbitMQ processing millions of events daily with ClickHouse real-time analytics.</p>
+                    </div>
+                </article>
+
+                <!-- Project 2/2024 - Polyglot Persistence -->
+                <article class="timeline-item" data-month="February" data-year="2024">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-date">February 2024</span>
+                    <div class="timeline-body">
+                        <h3>
+                            <a href="https://github.com/manohar102" target="_blank" rel="noopener noreferrer" class="project-title-link">
+                                Polyglot Persistence Layer
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </h3>
+                        <p class="project-short-desc">Implemented a polyglot persistence architecture using PostgreSQL, MongoDB, Redis, DynamoDB, and Redshift unified via Spring Boot abstraction layer.</p>
+                    </div>
+                </article>
+
+                <!-- Project 1/2024 - Full-Stack SaaS -->
+                <article class="timeline-item" data-month="January" data-year="2024">
+                    <div class="timeline-dot"></div>
+                    <span class="timeline-date">January 2024</span>
+                    <div class="timeline-body">
+                        <h3>
+                            <a href="https://github.com/manohar102" target="_blank" rel="noopener noreferrer" class="project-title-link">
+                                Full-Stack SaaS Platform
+                                <i class="fab fa-github"></i>
+                            </a>
+                        </h3>
+                        <p class="project-short-desc">End-to-end multi-tenant SaaS application with ReactJS frontend, Django/FastAPI microservices on EKS, Stripe billing, and CI/CD pipelines.</p>
+                    </div>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+
+
+    <div class="social-panel">
+        <a href="mailto:krishmanohar102@gmail.com" class="social-link">
+            <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/manoharkrishnaboppe/" class="social-link" target="_blank">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/manohar102" class="social-link" target="_blank">
+            <i class="fab fa-github"></i>
+        </a>
+    </div>
+
+    <script src="./scripts.js?v=4"></script>
+</body>
+</html>
