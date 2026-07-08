@@ -157,6 +157,8 @@ body {
     font-weight: 700;
     color: var(--text-strong);
     letter-spacing: -0.5px;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .nav-links {
@@ -1277,6 +1279,220 @@ textarea {
     }
 }
 
+
+/* ============================================
+   Skills Section
+   ============================================ */
+.skills-section {
+    padding: 64px 0 80px;
+    background: var(--bg-soft);
+    position: relative;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+}
+
+.skills-category {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 24px;
+    box-shadow: var(--shadow);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skills-category:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-strong);
+}
+
+.skills-category h3 {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 16px;
+    color: var(--text-strong);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.skills-category h3 i {
+    color: var(--accent);
+}
+
+.skills-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skills-chips span {
+    background: var(--skills-chip-bg);
+    color: var(--skills-chip-text);
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.85em;
+    font-weight: 500;
+    border: 1px solid var(--border);
+    transition: all 0.2s ease;
+}
+
+.skills-chips span:hover {
+    background: var(--accent);
+    color: var(--accent-on);
+    border-color: transparent;
+    transform: scale(1.05);
+}
+
+/* ============================================
+   Project Tags
+   ============================================ */
+.project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.project-tag {
+    font-size: 0.72em;
+    font-weight: 500;
+    color: var(--accent);
+    background: rgba(53, 122, 189, 0.08);
+    border: 1px solid rgba(53, 122, 189, 0.15);
+    padding: 3px 10px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    transition: all 0.2s ease;
+}
+
+[data-theme="dark"] .project-tag {
+    background: rgba(90, 163, 230, 0.08);
+    border-color: rgba(90, 163, 230, 0.15);
+}
+
+/* ============================================
+   Blog Post Detail Page
+   ============================================ */
+.blog-post-section {
+    padding: 120px 0 80px;
+    background: var(--bg);
+}
+
+.blog-post-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.blog-post-header {
+    margin-bottom: 40px;
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 30px;
+}
+
+.blog-post-meta-top {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 15px;
+    font-size: 0.9em;
+}
+
+.blog-post-title {
+    font-size: 2.5em;
+    font-weight: 700;
+    line-height: 1.25;
+    color: var(--text-strong);
+    margin-bottom: 20px;
+}
+
+.blog-post-meta-bottom {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 0.85em;
+    color: var(--text-muted);
+}
+
+.blog-post-content {
+    font-size: 1.1em;
+    line-height: 1.8;
+    color: var(--text);
+}
+
+.blog-post-content p {
+    margin-bottom: 24px;
+}
+
+.blog-post-content h2 {
+    font-size: 1.6em;
+    font-weight: 600;
+    margin: 40px 0 16px;
+    color: var(--text-strong);
+    border-bottom: 1px solid var(--border);
+    padding-bottom: 8px;
+}
+
+.blog-post-content h3 {
+    font-size: 1.25em;
+    font-weight: 600;
+    margin: 24px 0 12px;
+    color: var(--text-strong);
+}
+
+.blog-post-content ul, .blog-post-content ol {
+    margin-bottom: 24px;
+    padding-left: 24px;
+}
+
+.blog-post-content li {
+    margin-bottom: 8px;
+}
+
+.blog-post-content pre {
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    overflow-x: auto;
+    margin-bottom: 24px;
+}
+
+.blog-post-content code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9em;
+}
+
+.blog-post-content blockquote {
+    border-left: 4px solid var(--accent);
+    background: var(--bg-soft);
+    padding: 16px 24px;
+    margin: 0 0 24px 0;
+    font-style: italic;
+    color: var(--text-muted);
+}
+
+.back-to-blogs {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    margin-top: 40px;
+    transition: color 0.2s ease;
+}
+
+.back-to-blogs:hover {
+    color: var(--accent-strong);
+}
+
 /* ============================================
    Responsive Design
    ============================================ */
@@ -1643,5 +1859,16 @@ body.intro-active .subtitle {
         padding: 0;
         margin: 0;
         width: 100%;
+    }
+
+    /* Blog post detail responsive */
+    .blog-post-section {
+        padding-top: 100px;
+    }
+    .blog-post-title {
+        font-size: 2em;
+    }
+    .blog-post-content {
+        font-size: 1em;
     }
 }
