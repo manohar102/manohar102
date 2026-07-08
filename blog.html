@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Manohar Krishna Boppe's Blog - Detailed technical insights.">
+    <meta name="author" content="Manohar Krishna Boppe">
+    <title>Blog | Manohar Krishna Boppe</title>
+    <script>
+        (function () {
+            try {
+                var pref = localStorage.getItem('theme-pref') || 'system';
+                var dark = pref === 'dark' ||
+                    (pref === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+                if (dark) document.documentElement.setAttribute('data-theme', 'dark');
+            } catch (e) { /* localStorage blocked — fall through to system */ }
+        })();
+    </script>
+    <link rel="stylesheet" href="./styles.css?v=11">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Marked Markdown Parser CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+</head>
+
+<body>
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="nav-brand">MB</a>
+            <div class="nav-links">
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="blogs.html" class="nav-link active">Blog</a>
+
+                <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme"
+                    title="Toggle theme (long-press to reset to system)">
+                    <i class="fas fa-moon theme-icon-dark" aria-hidden="true"></i>
+                    <i class="fas fa-sun theme-icon-light" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <article class="blog-post-section">
+        <div class="blog-post-container">
+
+            <header class="blog-post-header">
+                <div class="blog-post-meta-top">
+                    <span class="blog-category-tag" id="post-category">
+                        <i class="fas fa-server"></i> Backend Engineering
+                    </span>
+                </div>
+                <h1 class="blog-post-title" id="post-title">Loading...</h1>
+                <div class="blog-post-meta-bottom">
+                    <span id="post-date"><i class="far fa-calendar"></i> ...</span>
+                    <span id="post-read-time"><i class="far fa-clock"></i> ...</span>
+                </div>
+            </header>
+
+            <div class="blog-post-content" id="post-content">
+                <!-- Dynamic markdown content will be rendered here -->
+            </div>
+
+            <div class="blog-post-footer-links">
+                <a href="blogs.html" class="back-to-blogs"><i class="fas fa-arrow-left"></i> Back to Blog</a>
+            </div>
+
+        </div>
+    </article>
+
+    <div class="social-panel">
+        <a href="mailto:krishmanohar102@gmail.com" class="social-link">
+            <i class="fas fa-envelope"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/manoharkrishnaboppe/" class="social-link" target="_blank">
+            <i class="fab fa-linkedin"></i>
+        </a>
+        <a href="https://github.com/manohar102" class="social-link" target="_blank">
+            <i class="fab fa-github"></i>
+        </a>
+    </div>
+
+    <script src="./scripts.js?v=4"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const urlParams = new URLSearchParams(window.location.search);
+            const postName = urlParams.get('post') || 'design-patterns';
+
+            // Map of blog post metadata
+            const metadata = {
+                'design-patterns': {
+                    title: 'SOLID Billing Foundations: Implementing GoF Design Patterns in Java',
+                    date: 'June 15, 2026',
+                    category: 'Backend Engineering',
+                    categoryIcon: 'fa-server',
+                    readTime: '6 min read'
+                },
+                'solid-principles': {
+                    title: 'SOLID Principles in Action: Designing Reusable and Resilient Software in Java',
+                    date: 'June 1, 2026',
+                    category: 'Backend Engineering',
+                    categoryIcon: 'fa-server',
+                    readTime: '8 min read'
+                }
+            };
+
+            const postMeta = metadata[postName] || {
+                title: 'Blog Post Not Found',
+                date: '',
+                category: 'Error',
+                categoryIcon: 'fa-exclamation-triangle',
+                readTime: ''
+            };
+
+            // Set page metadata & UI elements
+            document.title = `${postMeta.title} | Manohar Krishna Boppe`;
+            document.getElementById('post-title').textContent = postMeta.title;
+            document.getElementById('post-date').innerHTML = `<i class="far fa-calendar"></i> ${postMeta.date}`;
+            document.getElementById('post-read-time').innerHTML = `<i class="far fa-clock"></i> ${postMeta.readTime}`;
+            document.getElementById('post-category').innerHTML = `<i class="fas ${postMeta.categoryIcon}"></i> ${postMeta.category}`;
+
+            if (postMeta.title === 'Blog Post Not Found') {
+                document.getElementById('post-content').innerHTML = '<p>The requested blog post could not be found.</p>';
+                return;
+            }
+
+            // Check if page is loaded via file:// protocol (which blocks local fetch requests due to browser CORS policies)
+            if (window.location.protocol === 'file:') {
+                document.getElementById('post-content').innerHTML = `
+                    <div style="padding: 30px; border: 1px dashed var(--accent); border-radius: 12px; background: rgba(52, 152, 219, 0.05); text-align: center; margin: 40px auto; max-width: 600px;">
+                        <i class="fas fa-shield-alt" style="font-size: 3em; color: var(--accent); margin-bottom: 20px;"></i>
+                        <h3 style="margin-bottom: 12px; color: var(--text-strong); font-size: 1.4em;">Local File Loading Blocked (CORS)</h3>
+                        <p style="margin-bottom: 20px; font-size: 0.95em; line-height: 1.6; color: var(--text);">
+                            Modern web browsers block reading local files (such as Markdown files under the <code>blogs/</code> folder) via the <code>file://</code> protocol due to security sandbox (CORS) restrictions.
+                        </p>
+                        <h4 style="margin-bottom: 10px; color: var(--text-strong); font-size: 1.1em;">How to View Local Site:</h4>
+                        <p style="font-size: 0.9em; line-height: 1.6; color: var(--text);">
+                            To serve and view the site locally with fully functional markdown parsing:
+                        </p>
+                        <ol style="display: inline-block; text-align: left; margin: 15px auto; padding-left: 20px; font-size: 0.9em; line-height: 1.8; color: var(--text);">
+                            <li>Open a terminal in the project directory.</li>
+                            <li>Run a local server: <code>python -m http.server 8000</code></li>
+                            <li>Navigate to: <a href="http://localhost:8000/blog.html?post=design-patterns" style="color: var(--accent); text-decoration: underline;">http://localhost:8000/blog.html?post=design-patterns</a></li>
+                        </ol>
+                        <p style="font-size: 0.85em; margin-top: 15px; color: var(--accent);">
+                            <i class="fas fa-info-circle"></i> We have added a <strong>run.bat</strong> script in the project root. Just double-click it to start the server automatically!
+                        </p>
+                    </div>
+                `;
+                return;
+            }
+
+            // Fetch the markdown file from the blogs directory
+            fetch(`blogs/${postName}.md`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Failed to fetch markdown file');
+                    }
+                    return response.text();
+                })
+                .then(markdown => {
+                    // Parse markdown and render as HTML
+                    document.getElementById('post-content').innerHTML = marked.parse(markdown);
+                })
+                .catch(error => {
+                    console.error('Error rendering markdown:', error);
+                    document.getElementById('post-content').innerHTML = '<p>Error loading blog post content.</p>';
+                });
+        });
+    </script>
+</body>
+
+</html>

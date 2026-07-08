@@ -1,37 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="author" content="Manohar Krishna Boppe">
     <title>Manohar Krishna Boppe</title>
-    <link rel="stylesheet" href="./styles.css">
+    <script>
+        (function () {
+            try {
+                var pref = localStorage.getItem('theme-pref') || 'system';
+                var dark = pref === 'dark' ||
+                    (pref === 'system' && window.matchMedia('(prefers-color-scheme: dark)').matches);
+                if (dark) document.documentElement.setAttribute('data-theme', 'dark');
+            } catch (e) { /* localStorage blocked — fall through to system */ }
+        })();
+    </script>
+    <link rel="stylesheet" href="./styles.css?v=11">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
+
 <body>
-    <div class="cursor-trail"></div>
+    <div class="cursor-dot"></div>
+    <div class="cursor-ring"></div>
+
+    <!-- CLI Intro -->
+    <div class="cli-intro" id="cli-intro" aria-hidden="true">
+        <div class="cli-window" role="img" aria-label="Terminal intro">
+            <div class="cli-titlebar">
+                <span class="cli-dot cli-dot-r"></span>
+                <span class="cli-dot cli-dot-y"></span>
+                <span class="cli-dot cli-dot-g"></span>
+                <span class="cli-title">manohar@portfolio: ~</span>
+            </div>
+            <div class="cli-body">
+                <div class="cli-line"><span class="cli-prompt">$</span> <span id="cli-cmd"></span><span
+                        class="cli-caret" id="cli-caret">▌</span></div>
+                <div class="cli-output" id="cli-output"></div>
+                <div class="cli-line cli-done" id="cli-done" hidden><span class="cli-prompt">$</span> <span
+                        class="cli-caret cli-caret-blink">▌</span></div>
+            </div>
+        </div>
+    </div>
 
     <nav class="navbar">
         <div class="nav-container">
-            <div class="nav-brand">MB</div>
+            <a href="index.html" class="nav-brand">MB</a>
             <div class="nav-links">
-                <a href="#home" class="nav-link active">Home</a>
-                <a href="#projects" class="nav-link">Projects</a>
-                <a href="#resume" class="nav-link resume-link">Resume</a>
+                <a href="index.html" class="nav-link">Home</a>
+                <a href="projects.html" class="nav-link">Projects</a>
+                <a href="blogs.html" class="nav-link">Blog</a>
+
+                <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Toggle color theme"
+                    title="Toggle theme (long-press to reset to system)">
+                    <i class="fas fa-moon theme-icon-dark" aria-hidden="true"></i>
+                    <i class="fas fa-sun theme-icon-light" aria-hidden="true"></i>
+                </button>
             </div>
         </div>
     </nav>
 
     <div class="hero" id="home">
-    <div class="hero-content">
-        <div class="profile-section">
-            <img src="./profile_pic.jpg" alt="Manohar Krishna Boppe" class="profile-pic">
-            <div class="name-section">
-                <h1 class="name">Manohar Krishna Boppe</h1>
+        <div class="hero-content">
+            <div class="profile-section">
+                <img src="./profile_pic.jpg" alt="Manohar Krishna Boppe" class="profile-pic">
+                <div class="name-section">
+                    <h1 class="name">Manohar Krishna Boppe</h1>
+                </div>
             </div>
-        </div>
             <p class="subtitle">
-                Engineering intelligent systems at scale. Specializing in GenAI, full-stack development, and distributed systems.
+                Engineering intelligent systems at scale. Specializing in GenAI, full-stack development, and distributed
+                systems.
                 Obsessed with AI, robotics, and the challenge of making complex problems simple.
             </p>
         </div>
@@ -43,51 +82,165 @@
         </div>
     </div>
 
-    <section class="projects" id="projects">
+    <section class="about-section" id="about">
+        <div class="container about-layout">
+            <div class="about-copy">
+                <span class="section-kicker">About Me</span>
+                <h2>I am a product-minded engineer who likes turning messy ideas into reliable software.</h2>
+                <p>
+                    I work across GenAI, full-stack development, and distributed systems, with a strong bias for
+                    practical solutions that people can actually use. I enjoy understanding the problem deeply,
+                    designing the right abstractions, and shipping systems that stay calm under real-world load.
+                </p>
+            </div>
+            <div class="about-traits" aria-label="Personal strengths">
+                <div class="about-trait">
+                    <i class="fas fa-brain" aria-hidden="true"></i>
+                    <span>Curious about AI, robotics, and intelligent automation.</span>
+                </div>
+                <div class="about-trait">
+                    <i class="fas fa-layer-group" aria-hidden="true"></i>
+                    <span>Comfortable moving from backend architecture to polished frontend flows.</span>
+                </div>
+                <div class="about-trait">
+                    <i class="fas fa-compass" aria-hidden="true"></i>
+                    <span>Focused on clarity, ownership, and making complex work feel simple.</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Skills & Expertise -->
+    <section class="skills-section" id="skills">
         <div class="container">
-            <h2>Featured Projects</h2>
-            <div class="projects-grid">
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-robot"></i>
-                    </div>
-                    <h3>Testsigma</h3>
-                    <p>AI-powered test automation platform with GenAI integration, parallel execution, and enterprise features.</p>
-                    <div class="project-tech">
+            <span class="section-kicker">Tech Stack</span>
+            <h2 class="section-title">Skills &amp; Expertise</h2>
+            <div class="skills-grid">
+                
+                <!-- Category 1: Languages -->
+                <div class="skills-category">
+                    <h3><i class="fas fa-code"></i> Programming Languages</h3>
+                    <div class="skills-chips">
+                        <span>Java</span>
                         <span>Python</span>
-                        <span>Spring Boot</span>
-                        <span>Kubernetes</span>
-                        <span>ReactJS</span>
+                        <span>Go</span>
+                        <span>TypeScript</span>
+                        <span>C</span>
+                        <span>C++</span>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-brain"></i>
+                <!-- Category 2: Frameworks -->
+                <div class="skills-category">
+                    <h3><i class="fas fa-cubes"></i> Frameworks</h3>
+                    <div class="skills-chips">
+                        <span>Spring Boot</span>
+                        <span>ReactJS</span>
+                        <span>FastAPI</span>
+                        <span>Flask</span>
+                        <span>Django</span>
+                        <span>.NET</span>
                     </div>
-                    <h3>GenAI Integration</h3>
-                    <p>Advanced AI features using OpenAI, Gemini, and Claude APIs for intelligent automation and insights.</p>
-                    <div class="project-tech">
+                </div>
+
+                <!-- Category 3: Databases & Streaming -->
+                <div class="skills-category">
+                    <h3><i class="fas fa-database"></i> Databases &amp; Streaming</h3>
+                    <div class="skills-chips">
+                        <span>MySQL</span>
+                        <span>PostgreSQL</span>
+                        <span>ClickHouse</span>
+                        <span>Redis</span>
+                        <span>DynamoDB</span>
+                        <span>Redshift</span>
+                        <span>Kafka</span>
+                    </div>
+                </div>
+
+                <!-- Category 4: Cloud & DevOps -->
+                <div class="skills-category">
+                    <h3><i class="fas fa-cloud"></i> Cloud &amp; DevOps</h3>
+                    <div class="skills-chips">
+                        <span>AWS</span>
+                        <span>GCP</span>
+                        <span>Docker</span>
+                        <span>Kubernetes</span>
+                        <span>Terraform</span>
+                        <span>GitHub Actions</span>
+                    </div>
+                </div>
+
+                <!-- Category 5: GenAI -->
+                <div class="skills-category">
+                    <h3><i class="fas fa-brain"></i> GenAI</h3>
+                    <div class="skills-chips">
                         <span>OpenAI</span>
                         <span>Gemini</span>
                         <span>Claude</span>
-                        <span>Python</span>
+                        <span>Vertex-AI</span>
+                        <span>Portkey</span>
+                        <span>GoogleLiveAPI</span>
                     </div>
                 </div>
 
-                <div class="project-card">
-                    <div class="project-icon">
-                        <i class="fas fa-cloud"></i>
-                    </div>
-                    <h3>Cloud Architecture</h3>
-                    <p>Scalable AWS infrastructure with microservices, serverless computing, and multi-region deployment.</p>
-                    <div class="project-tech">
-                        <span>AWS</span>
-                        <span>Kubernetes</span>
-                        <span>Docker</span>
-                        <span>Terraform</span>
-                    </div>
+            </div>
+        </div>
+    </section>
+
+
+
+    <!-- Dual-Sided History Timeline -->
+    <section class="dual-timeline-section" id="history">
+        <div class="container">
+            <h2 class="dt-title">Work and Education History</h2>
+            <p class="dt-subtitle">A quick timeline of the roles, teams, and education that shaped how I build.</p>
+            
+            <div class="dual-timeline flat-grid">
+                
+                <!-- Center Years -->
+                <div class="dt-year-marker" style="grid-column: 2; grid-row: 1;">2026</div>
+                <div class="dt-year-marker" style="grid-column: 2; grid-row: 2;">2025</div>
+                <div class="dt-year-marker" style="grid-column: 2; grid-row: 3;">2024</div>
+                <div class="dt-year-marker" style="grid-column: 2; grid-row: 4;">2023</div>
+                <div class="dt-year-marker" style="grid-column: 2; grid-row: 5;">2022</div>
+                <div class="dt-year-marker" style="grid-column: 2; grid-row: 6;">2021</div>
+                <div class="dt-year-marker" style="grid-column: 2; grid-row: 7;">2020</div>
+                <div class="dt-year-marker" style="grid-column: 2; grid-row: 8;">2019</div>
+
+                <!-- Left Side: Work Experience -->
+                <div class="dt-card card-red dt-left-card" style="grid-column: 1; grid-row: 1 / span 2;">
+                    <span class="dt-card-date">2025 — 2026</span>
+                    <h4>Senior Software Engineer</h4>
+                    <p>Testsigma</p>
                 </div>
+
+                <div class="dt-card card-purple dt-left-card" style="grid-column: 1; grid-row: 3 / span 2;">
+                    <span class="dt-card-date">2023 — 2024</span>
+                    <h4>Software Engineer</h4>
+                    <p>Testsigma</p>
+                </div>
+
+                <div class="dt-card card-teal dt-left-card" style="grid-column: 1; grid-row: 5 / span 1;">
+                    <span class="dt-card-date">2022</span>
+                    <h4>Software Engineer Intern</h4>
+                    <p>Testsigma</p>
+                </div>
+
+                <div class="dt-card card-green dt-left-card" style="grid-column: 1; grid-row: 6 / span 1;">
+                    <span class="dt-card-date">2021</span>
+                    <h4>Full Stack Developer</h4>
+                    <p>ModulusPI IT Solutions LLC</p>
+                </div>
+
+                <!-- Right Side: Education -->
+                <div class="dt-card card-pink dt-right-card" style="grid-column: 3; grid-row: 5 / span 4;">
+                    <span class="dt-card-date">2019 — 2022</span>
+                    <h4>Computer Science and Engineering</h4>
+                    <p>Rajiv Gandhi University of Knowledge Technologies</p>
+                </div>
+
             </div>
         </div>
     </section>
@@ -104,155 +257,9 @@
         </a>
     </div>
 
-    <!-- Resume Modal -->
-    <div id="resume-modal" class="modal-overlay">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h2>Resume</h2>
-                <button class="modal-close">&times;</button>
-            </div>
-            <div class="modal-body">
-                <iframe id="resume-iframe" src="./resume.html" class="resume-iframe" title="Resume"></iframe>
-            </div>
-        </div>
-    </div>
 
-    <script>
-        // Cursor trail effect
-        const cursorTrail = document.querySelector('.cursor-trail');
-        let trailPoints = [];
-        const maxTrailLength = 15;
 
-        document.addEventListener('mousemove', (e) => {
-            const point = { x: e.clientX, y: e.clientY, timestamp: Date.now() };
-
-            trailPoints.unshift(point);
-
-            if (trailPoints.length > maxTrailLength) {
-                trailPoints.pop();
-            }
-
-            updateTrail();
-        });
-
-        function updateTrail() {
-            cursorTrail.innerHTML = '';
-
-            trailPoints.forEach((point, index) => {
-                const opacity = (maxTrailLength - index) / maxTrailLength * 0.6;
-                const size = 3 + (index * 0.3);
-
-                const trailDot = document.createElement('div');
-                trailDot.className = 'trail-dot';
-                trailDot.style.left = point.x - size/2 + 'px';
-                trailDot.style.top = point.y - size/2 + 'px';
-                trailDot.style.width = size + 'px';
-                trailDot.style.height = size + 'px';
-                trailDot.style.opacity = opacity;
-
-                cursorTrail.appendChild(trailDot);
-            });
-        }
-
-        // Floating elements animation
-        const shapes = document.querySelectorAll('.floating-shape');
-
-        shapes.forEach((shape, index) => {
-            shape.style.animationDelay = `${index * 2}s`;
-            shape.style.left = `${20 + index * 25}%`;
-            shape.style.top = `${20 + index * 15}%`;
-        });
-
-        // Resume Modal Functionality
-        const resumeModal = document.getElementById('resume-modal');
-        const resumeLink = document.querySelector('.resume-link');
-        const modalClose = document.querySelector('.modal-close');
-
-        // Show resume modal
-        resumeLink.addEventListener('click', (e) => {
-            e.preventDefault();
-            showResumeModal();
-        });
-
-        // Close modal events
-        modalClose.addEventListener('click', () => {
-            hideResumeModal();
-        });
-
-        resumeModal.addEventListener('click', (e) => {
-            if (e.target === resumeModal) {
-                hideResumeModal();
-            }
-        });
-
-        // ESC key to close modal
-        document.addEventListener('keydown', (e) => {
-            if (e.key === 'Escape' && resumeModal.classList.contains('active')) {
-                hideResumeModal();
-            }
-        });
-
-        function showResumeModal() {
-            resumeModal.classList.add('active');
-            document.body.style.overflow = 'hidden';
-        }
-
-        function hideResumeModal() {
-            resumeModal.classList.remove('active');
-            document.body.style.overflow = '';
-        }
-
-        // Smooth scrolling for navigation (excluding resume)
-        document.querySelectorAll('.nav-link:not(.resume-link)').forEach(link => {
-            link.addEventListener('click', (e) => {
-                e.preventDefault();
-                const targetId = link.getAttribute('href').substring(1);
-                const targetSection = document.getElementById(targetId);
-
-                if (targetSection) {
-                    const offsetTop = targetSection.offsetTop - 80; // Account for fixed navbar
-                    window.scrollTo({
-                        top: offsetTop,
-                        behavior: 'smooth'
-                    });
-
-                    // Update active nav link
-                    document.querySelectorAll('.nav-link').forEach(navLink => {
-                        navLink.classList.remove('active');
-                    });
-                    link.classList.add('active');
-                }
-            });
-        });
-
-        // Update active nav link on scroll
-        window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section[id], .hero[id]');
-            const scrollY = window.pageYOffset;
-
-            sections.forEach(section => {
-                const sectionHeight = section.offsetHeight;
-                const sectionTop = section.offsetTop - 100;
-                const sectionId = section.getAttribute('id');
-
-                if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                    document.querySelector(`.nav-link[href="#${sectionId}"]`)?.classList.add('active');
-                } else {
-                    document.querySelector(`.nav-link[href="#${sectionId}"]`)?.classList.remove('active');
-                }
-            });
-        });
-
-        // Interactive hover effects
-        document.querySelectorAll('.cta-primary, .cta-secondary').forEach(button => {
-            button.addEventListener('mouseenter', () => {
-                cursorTrail.style.opacity = '0.4';
-            });
-
-            button.addEventListener('mouseleave', () => {
-                cursorTrail.style.opacity = '0.6';
-            });
-        });
-    </script>
+    <script src="./scripts.js?v=4"></script>
 </body>
+
 </html>
