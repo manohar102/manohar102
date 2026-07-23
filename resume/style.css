@@ -33,6 +33,26 @@ body {
     .header {
         background: white !important;
         color: black !important;
+        display: block !important;
+        position: relative !important;
+        z-index: 100 !important;
+    }
+
+    .header::after {
+        content: "";
+        display: table !important;
+        clear: both !important;
+    }
+
+    .header>div:first-child {
+        float: left !important;
+        display: block !important;
+    }
+
+    .contact {
+        float: right !important;
+        display: block !important;
+        text-align: right !important;
     }
 
     .header .meta {
@@ -40,8 +60,10 @@ body {
     }
 
     .contact a {
-        color: black !important;
-        text-decoration: #357abd;
+        color: #357abd !important;
+        text-decoration: none !important;
+        position: relative !important;
+        z-index: 150 !important;
     }
 
     .education {
@@ -69,6 +91,8 @@ body {
     max-width: 1000px;
     margin: 0 auto 15px auto;
     border-radius: 6px;
+    position: relative;
+    z-index: 10;
 }
 
 .header h1 {
@@ -92,7 +116,7 @@ body {
 
 .contact a {
     color: white;
-    text-decoration: none;
+    text-decoration: underline;
 }
 
 .contact a:hover {
